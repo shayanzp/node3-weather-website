@@ -50,17 +50,11 @@ app.get('/weather', (req, res)=>{
             error: 'address must be provided'
         })
     }
-     getWeather('qazvin', (error, data) => {
+     getWeather(req.query.address, (error, data) => {
          if (error){
              return res.send({error})
          }
-         res.send({
-             title: 'weather',
-             location: 'qazvin',
-             forecast: 'it is 50 degree',
-             address: req.query.address,
-             weather: data
-         })
+         res.send(data)
     })
     // res.send({
     //     title: 'weather',

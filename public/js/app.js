@@ -16,14 +16,13 @@ weatherForm.addEventListener('submit', (e) => {
 
     messageOne.textContent = 'Loading ...'
     messageTwo.textContent = ''
-    fetch('http://api.weatherstack.com/current?access_key=17167c96aeea9045b4f053e98813e430&query='+location+'&units=m').then((response) => {
+    fetch('/weather?address=' + location).then((response) => {
         response.json().then((data) => {
-            if (data.error){
-                messageOne.textContent = data.error.info
-            }else{
-                messageOne.textContent = 'country: '+ data.location.country+' . local time: '+data.location.localtime
-                messageTwo.textContent = 'tempreture is '+data.current.temperature + ' degree'
-                console.log(data)
+            if (data.error) {
+                messageOne.textContent = data.error
+            } else {
+                messageOne.textContent = ''
+                messageTwo.textContent = 'the temperature is '+data.temperature+ 'Celsius degree '
             }
         })
     })
