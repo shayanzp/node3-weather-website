@@ -22,7 +22,7 @@ weatherForm.addEventListener('submit', (e) => {
                 messageOne.textContent = data.error
             } else {
                 messageOne.textContent = ''
-                messageTwo.textContent = 'the temperature is '+data.temperature+ 'Celsius degree '
+                messageTwo.textContent = 'the temperature is '+data.temperature+ 'Celsius degree and it feels like '+data.feelslike+' . the pressure is  '+ data.pressure+ '  . humidity is: '+ data.humidity+ ' . wind direction is: '+data.wind_dir+' .  wind speed is: '+data.wind_speed+' .'
             }
         })
     })
